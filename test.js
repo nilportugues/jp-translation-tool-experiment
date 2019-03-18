@@ -167,6 +167,21 @@ translate(tranObj, {to: 'en'}).then(res => {
         };
 
 	//Check if words translated belong to english. If not, keep the words, and return an object with them.
+     	let checkTranslation = translation;
+	checkTranslation = checkTranslation.replace(new RegExp("\n", "g"), " ")
+	const punctuationless = checkTranslation.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()"]/g,"");
+	const finalString = punctuationless.replace(/\s{2,}/g," ");
+
+        let translatedWords = finalString.split(" ");
+        translatedWords = translatedWords.map(w => w.toLowerCase());
+	translatedWords = [...new Set(translatedWords)];
+
+	translatedWords.forEach(word => {
+		if (!wordExistingEnglish(word) && word != "\n") {
+        	   result.requires_human_check = true;
+	   	result.non_english_wordlist.push(word);
+        	}
+	});
 
 	console.log(result);
 })
