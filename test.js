@@ -1,5 +1,4 @@
-const translationTool = require('./index')
-
+const translationTool = require("./index");
 
 let inputText = `
 
@@ -45,7 +44,7 @@ let inputText = `
 止まらないんだってコンセント刺さってないのに
 
 音楽は止まない ずっと しょっちゅう しょっちゅう
-`
+`;
 
 inputText = `
 クラクションに佇む灯り
@@ -107,11 +106,11 @@ inputText = `
 ほら　また始まる
 あの日の見苦しい僕の姿は
 もう此処にはないから
-`
+`;
 
-const example = async (inputText) => {
-	const result = await translationTool(inputText);
-	console.log(result);
-}
+const example = async inputText => {
+  const result = await translationTool(inputText);
+  console.log(result);
+};
 
-example(inputText)
+example(inputText);
