@@ -4,6 +4,7 @@ const wanakana = require('wanakana')
 const wordList = require('./JMdictWords.array')
 const TinySegmenter = require('./tiny_segmenter-0.2')
 
+const wordExistingEnglish = require('./wordExistingEnglish')
 
 let inputText = `
 繰り返してたびたび辛い思いする夜は
@@ -156,22 +157,18 @@ hiraganaReplacements.forEach(pair => {
 
 
 //Do the translation
-const char = "/"
-const symbol = ` ${char} `
-const symbolGoogle = `${char}`
-
-//inputText = inputText.split("\n\n").join(";");
-//inputText = inputText.split("\n").join(symbol);
-
-text = inputText;
-const tranObj = {text: text}
-
-
-const res = translate(tranObj, {to: 'en'}).then(res => {
+const tranObj = {text: inputText}
+translate(tranObj, {to: 'en'}).then(res => {
 	let translation = res.text;
- // translation = translation.split(symbol+symbol).join("\n\n")
-//	translation = translation.split(symbolGoogle).join("\n")
-	console.log(translation);
+	const result = {
+		translation: translation,
+		requires_human_check: false,
+		non_english_wordlist: []
+        };
+
+	//Check if words translated belong to english. If not, keep the words, and return an object with them.
+
+	console.log(result);
 })
 
 
