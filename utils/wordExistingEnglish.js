@@ -1,4 +1,4 @@
-const extraWords = require('./listOfEnglishWords')
+const extraWords = require('../data/englishWords')
 const wordlist = require('wordlist-english')
 const englishWords = wordlist['english'];
 
