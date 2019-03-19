@@ -1,4 +1,4 @@
-const translationTool = require("./index");
+const translationTool = require("./service");
 
 let inputText = `
 
