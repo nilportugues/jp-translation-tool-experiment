@@ -2,7 +2,7 @@ const translate = require("translate-google");
 const wanakana = require("wanakana");
 
 const englishContractions = require("./data/englishContractions");
-const japaneseWordList = require("./data/jMdictWords");
+const japaneseWordList = require("./data/jMDictWords");
 const TinySegmenter = require("./tokenizers/tinySegmenter");
 
 const wordExistingEnglish = require("./utils/wordExistsInEnglish");
